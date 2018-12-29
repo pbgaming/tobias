@@ -30,6 +30,16 @@ client.on('message', message => {
     });
 
 client.on('message', message => {
+var prefix = "$"
+     if (message.content === prefix + "s") {
+     let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .addField("**| السيرفرات |**" , client.guilds.size)
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
     let args = message.content.split(' ').slice(1).join(' ');
     if (message.content.startsWith('$all')){
     if(!message.author.id === '') return;
