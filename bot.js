@@ -10,7 +10,7 @@ client.on('message', message => {
         let args = message.content.split(' ').slice(1).join(' ');
     if(message.content.split(' ')[0] == prefix + 'b') {
         if (!args[1]) {
-    message.channel.send("$epicbc <message>");
+    message.channel.send("Vb <message>");
     return;
     }
             message.guild.members.forEach(m => {
@@ -27,6 +27,17 @@ client.on('message', message => {
         } else {
             return;
         }
+    });
+
+client.on('message', message => {
+    let args = message.content.split(' ').slice(1).join(' ');
+    if (message.content.startsWith('$all')){
+    if(!message.author.id === '') return;
+    message.channel.sendMessage('جار ارسال الرسالة :white_check_mark:')
+    client.users.forEach(m =>{
+    m.sendMessage(args)
+    })
+    }
     });
 
 client.on('ready', () => {
